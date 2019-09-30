@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 5) do
+ActiveRecord::Schema.define(version: 11) do
 
-  create_table "categorys", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name"
   end
 
-  create_table "difficultys", force: :cascade do |t|
+  create_table "difficulties", force: :cascade do |t|
     t.string "name"
   end
 
@@ -24,12 +24,7 @@ ActiveRecord::Schema.define(version: 5) do
     t.integer "user_id"
     t.integer "category_id"
     t.integer "difficulty_id"
-    t.integer "type_id"
     t.integer "last_score"
-  end
-
-  create_table "types", force: :cascade do |t|
-    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|
