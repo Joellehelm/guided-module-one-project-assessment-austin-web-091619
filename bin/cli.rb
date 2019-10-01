@@ -1,5 +1,5 @@
 $logged_in = nil
-$this_user = nil
+
 
 def greeting
     puts 'Welcome to Quiz Show!!!'
@@ -32,11 +32,13 @@ def first_screen
         log_in
     elsif choice == "2"
         create_user_acc
+        log_in
     else
         "Please choose 1 or 2."
         first_screen
     end
 end
+
 
 def log_in
     puts "Please enter your account name."
@@ -51,8 +53,36 @@ def log_in
             #method to do what comes after logging in goes here
             after_logging_in
         end
+    else
+        puts "That username does not exist."
+        first_screen
     end
 
+end
+
+
+def step_one_to_delete_acc
+    this_user = User.find_by(id: $logged_in)
+    puts "Are you sure you want to delete your account?"
+    puts "1. Yes"
+    puts "2. No"
+    final = gets.chomp
+    if final == "1"
+        this_user.delete_account
+        puts "Your account has been deleted."
+        first_screen
+    elsif final == "2"
+        after_logging_in
+    else
+        puts "Please enter 1 or 2."
+        step_one_to_delete_acc
+    end
+end
+
+
+def selecting_quiz
+    puts "Please choose a category."
+    
 end
 
 def after_logging_in
@@ -61,6 +91,7 @@ def after_logging_in
     puts "1. Play a quiz."
     puts "2. View your past scores."
     puts "3. Change password."
+    puts "4. Delete your account."
 user_choice = gets.chomp
     if user_choice == "1"
         #method to select category for quiz
@@ -72,6 +103,8 @@ user_choice = gets.chomp
         change_to = gets.chomp
         this_user.password = "123" 
         this_user.save
+    elsif user_choice == "4"
+       step_one_to_delete_acc
     else
         20.times {puts}
         puts "========================="
@@ -80,6 +113,8 @@ user_choice = gets.chomp
 
         after_logging_in
     end
+
+
+
+
 end
-
-

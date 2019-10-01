@@ -4,5 +4,5 @@ require_relative 'cli'
 
 
 
-#   greeting
-#   first_screen
+  greeting
+  first_screen
