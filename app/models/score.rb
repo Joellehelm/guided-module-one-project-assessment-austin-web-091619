@@ -1,5 +1,5 @@
 class Score < ActiveRecord::Base
-    has_one :users
-    has_one :categorys
-    has_one :difficultys
+    belongs_to :user
+    belongs_to :category
+    belongs_to :difficulty
 end
