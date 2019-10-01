@@ -8,10 +8,14 @@ end
 
 def create_user_acc
     puts "Please enter a username for your account."
+    puts "Your username cannot exceede 10 chracters."
     ui_username = gets.chomp
     ui_username = ui_username.to_s
     if User.find_by(user_name: ui_username)
         puts "That account name already exists. Please try again."
+        create_user_acc
+    elsif ui_username.length > 10
+        puts "Your username is too long. Please try again."
         create_user_acc
     else
         puts "Please enter a password for your account."
@@ -25,6 +29,7 @@ end
 
 def first_screen
     puts "Please log in or create an account."
+    puts "Select a number below."
     puts "1. Log in"
     puts "2. Create a new account"
     choice = gets.chomp
@@ -32,7 +37,7 @@ def first_screen
         log_in
     elsif choice == "2"
         create_user_acc
-        log_in
+        first_screen
     else
         "Please choose 1 or 2."
         first_screen
@@ -88,6 +93,7 @@ end
 def after_logging_in
  this_user = User.find_by(id: $logged_in)
     puts "What would you like to do?"
+    puts "Select a number below."
     puts "1. Play a quiz."
     puts "2. View your past scores."
     puts "3. Change password."
@@ -101,8 +107,9 @@ user_choice = gets.chomp
         10.times {puts}
         puts "Please enter a new password."
         change_to = gets.chomp
-        this_user.password = "123" 
+        this_user.password = change_to 
         this_user.save
+        after_logging_in
     elsif user_choice == "4"
        step_one_to_delete_acc
     else
