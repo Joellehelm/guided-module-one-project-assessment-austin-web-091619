@@ -1,9 +1,30 @@
 $logged_in = nil
 
 
-def greeting
-    puts 'Welcome to Quiz Show!!!'
-end
+# def greeting
+#   welcome = File.ready()
+# print "__       __  ________  __        ______    ______   __       __  ________        ________   ______"        
+# print "|  \  _  |  \|        \|  \      /      \  /      \ |  \     /  \|        \      |        \ /      \"       
+# print "| $$ / \ | $$| $$$$$$$$| $$     |  $$$$$$\|  $$$$$$\| $$\   /  $$| $$$$$$$$       \$$$$$$$$|  $$$$$$\"      
+# print "| $$/  $\| $$| $$__    | $$     | $$   \$$| $$  | $$| $$$\ /  $$$| $$__             | $$   | $$  | $$ "     
+# print "| $$  $$$\ $$| $$  \   | $$     | $$      | $$  | $$| $$$$\  $$$$| $$  \            | $$   | $$  | $$ "     
+# print "| $$ $$\$$\$$| $$$$$   | $$     | $$   __ | $$  | $$| $$\$$ $$ $$| $$$$$            | $$   | $$  | $$ "     
+# print "| $$$$  \$$$$| $$_____ | $$_____| $$__/  \| $$__/ $$| $$ \$$$| $$| $$_____          | $$   | $$__/ $$ "     
+# puts "| $$$    \$$$| $$     \| $$     \\$$    $$ \$$    $$| $$  \$ | $$| $$     \         | $$    \$$    $$ "     
+# puts " \$$      \$$ \$$$$$$$$ \$$$$$$$$ \$$$$$$   \$$$$$$  \$$      \$$ \$$$$$$$$          \$$     \$$$$$$ "     
+# puts                                                                                                           
+# puts                                                                                                           
+# puts                                                                                                           
+# puts "  ______   __    __  ______  ________         ______   __    __   ______   __       __  __"                 
+# puts " /      \ |  \  |  \|      \|        \       /      \ |  \  |  \ /      \ |  \  _  |  \|  \"                
+# puts "|  $$$$$$\| $$  | $$ \$$$$$$ \$$$$$$$$      |  $$$$$$\| $$  | $$|  $$$$$$\| $$ / \ | $$| $$"                
+# puts "| $$  | $$| $$  | $$  | $$      /  $$       | $$___\$$| $$__| $$| $$  | $$| $$/  $\| $$| $$"                
+# puts "| $$  | $$| $$  | $$  | $$     /  $$         \$$    \ | $$    $$| $$  | $$| $$  $$$\ $$| $$"                
+# puts "| $$ _| $$| $$  | $$  | $$    /  $$          _\$$$$$$\| $$$$$$$$| $$  | $$| $$ $$\$$\$$ \$$"                
+# puts "| $$/ \ $$| $$__/ $$ _| $$_  /  $$___       |  \__| $$| $$  | $$| $$__/ $$| $$$$  \$$$$ __ "                
+# puts  "\$$ $$ $$ \$$    $$|   $$ \|  $$    \       \$$    $$| $$  | $$ \$$    $$| $$$    \$$$|  \"                
+# puts   "\$$$$$$\  \$$$$$$  \$$$$$$ \$$$$$$$$        \$$$$$$  \$$   \$$  \$$$$$$  \$$      \$$ \$$"   
+# end
 
 
 def create_user_acc
@@ -57,6 +78,10 @@ def log_in
             $logged_in = current.id                   #This grabs the users id if they log in correctly
             #method to do what comes after logging in goes here
             after_logging_in
+        else
+            puts "The password is incorrect."
+            puts "Please try again."
+            log_in
         end
     else
         puts "That username does not exist."
@@ -84,10 +109,36 @@ def step_one_to_delete_acc
     end
 end
 
+def quiz_info
+
+end 
+
 
 def selecting_quiz
     puts "Please choose a category."
-    
+    puts "Select a number below."
+    puts "1. General Knowledge"
+    puts "2. Music"
+    puts "3. Television"
+    puts "4. Science & Nature"
+    puts "5. Computers"
+    puts "6. Mythology"
+    puts "7. Sports"
+    puts "8. Geography"
+    puts "9. History"
+    puts "10. Animals"
+   selection = gets.chomp
+   #case statement here.  
+   #then difficulty selection method goes here
+end
+
+def selecting_difficulty
+    puts "Please choose a difficulty."
+    puts "Select a number below."
+    puts "1. Easy"
+    puts "2. Medium"
+    puts "3. Hard"
+    #play quiz method goes here
 end
 
 def after_logging_in
@@ -100,7 +151,7 @@ def after_logging_in
     puts "4. Delete your account."
 user_choice = gets.chomp
     if user_choice == "1"
-        #method to select category for quiz
+        selecting_quiz
     elsif user_choice == "2"
         #view past scores method
     elsif user_choice == "3"
@@ -109,6 +160,7 @@ user_choice = gets.chomp
         change_to = gets.chomp
         this_user.password = change_to 
         this_user.save
+        puts "Your password has been changed."
         after_logging_in
     elsif user_choice == "4"
        step_one_to_delete_acc
