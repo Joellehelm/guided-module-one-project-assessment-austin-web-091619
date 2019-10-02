@@ -1,3 +1,8 @@
 require_relative '../config/environment'
+require_relative 'cli'
 
-puts "hello world"
+
+
+
+#   greeting
+  first_screen
