@@ -19,11 +19,11 @@
 # food = Category.create(name: "Food")
 
 
-# first = Score.create(:user_id => 1, :category_id => 2, :difficulty_id => 3)
-# second = Score.create(:user_id => 2, :category_id => 4, :difficulty_id => 1)
-# third = Score.create(:user_id => 3, :category_id => 3, :difficulty_id => 2)
-# fourth = Score.create(:user_id => 4, :category_id => 6, :difficulty_id => 1)
-# fifth = Score.create(:user_id => 3, :category_id => 1, :difficulty_id => 3)
+# first = Score.create(:user_id => 1, :category_id => 2, :difficulty_id => 3, :last_score => 3)
+# second = Score.create(:user_id => 2, :category_id => 4, :difficulty_id => 1, :last_score => 1)
+# third = Score.create(:user_id => 3, :category_id => 3, :difficulty_id => 2, :last_score => 0)
+# fourth = Score.create(:user_id => 4, :category_id => 6, :difficulty_id => 1, :last_score => 2)
+# fifth = Score.create(:user_id => 3, :category_id => 1, :difficulty_id => 3, :last_score => 4)
 
 
 
