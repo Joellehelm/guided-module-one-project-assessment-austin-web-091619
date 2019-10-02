@@ -10,4 +10,10 @@ class User < ActiveRecord::Base
         end
         puts table
     end
+    
+    def delete_account
+        self.destroy
+    end
+  
 end
+
