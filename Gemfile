@@ -10,4 +10,4 @@ gem "pry"
 gem "terminal-table"
 gem  "text-table"
 gem "require_all"
-
+gem "rest-client"
