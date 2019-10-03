@@ -5,9 +5,10 @@ gem "sinatra-activerecord"
 gem 'activerecord'
 gem 'sqlite3', '~> 1.3.6'
 gem "rake", "12.3.2"
-gem 'rest-client'
+
 gem "pry"
 gem "terminal-table"
 gem  "text-table"
 gem "require_all"
 gem "rest-client"
+gem 'rainbow', '~> 3.0'
