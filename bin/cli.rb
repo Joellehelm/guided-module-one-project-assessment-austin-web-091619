@@ -336,6 +336,7 @@ user_choice = gets.chomp
         selecting_category
     elsif user_choice == "2"
         User.my_scores #THIS USED TO WORK AS User.my_scores
+        after_logging_in
     elsif user_choice == "3"
         10.times {puts}
         puts "Please enter a new password."
