@@ -22,7 +22,7 @@
 # geography = Category.create(name: "Geography")
 # history = Category.create(name: "History")
 # animals = Category.create(name: "Animals")
-
+# sciencennature = Category.create(name: "Science & Nature")
 
 # first = Score.create(:user_id => 1, :category_id => 2, :difficulty_id => 3, :last_score => 3)
 # second = Score.create(:user_id => 2, :category_id => 4, :difficulty_id => 1, :last_score => 1)

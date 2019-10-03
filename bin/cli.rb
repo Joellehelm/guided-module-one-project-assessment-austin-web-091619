@@ -114,6 +114,13 @@ def step_one_to_delete_acc
 end
 
 
+  def final_score
+        current =  Score.where(["user_id = ?", "#{$logged_in}"]).last
+        table = Text::Table.new
+        table.head = ['USERNAME', 'CATEGORIES PLAYED', 'DIFFICULTY','FINAL SCORE']
+        table.rows << [current.user.user_name, current.category.name, current.difficulty.name, current.last_score]
+        puts table
+    end 
 
 
 
@@ -179,12 +186,12 @@ def play_quiz(quizapi)
     newscore = $newscore
     newscore.last_score = points
     newscore.save
-    
-    final_score
+    # puts "You just got a score of #{newscore}!"
+     final_score
 
 end
 
-def create_url(urlcategory,difficulty)
+def create_url(urlcategory, difficulty)
     
     categories = {
     'General Knowledge': 9,
@@ -198,23 +205,28 @@ def create_url(urlcategory,difficulty)
     'History': 23,
     'Animals': 27
 }
-
 ############ URL API 
-    cat_id = categories.key(urlcategory)
+    cat_name = categories.key(urlcategory)
+    this_cat = Category.find_by(name: cat_name).id
+   
+    
 
-    base_url = 'https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple'
-    quiz_url = base_url[0...46] << urlcategory << '&difficulty=' << difficulty << '&type=multiple'
-    create_score(quiz_url, cat_id)
+    base_url = 'https://opentdb.com/api.php?amount=5&category=12&difficulty=easy&type=multiple'
+    quiz_url = base_url[0...46] << urlcategory.to_s << '&difficulty=' << difficulty << '&type=multiple'
+    create_score(quiz_url, this_cat)
     play_quiz(quiz_url)
 end
 
 def create_score(quiz_url, cat_id)
+    category = cat_id
+  
     quiz_url = 'https://opentdb.com/api.php?amount=5&category2=&difficulty=easy&type=multiple'
     cat_start = "category="
     cat_end = "&"
     dif_start = "difficulty="
     dif_end = "&"
-    category = cat_id
+ 
+    
     difficulty = quiz_url[/#{dif_start}(.*?)#{dif_end}/m, 1]
         if difficulty == 'easy'
             difficulty = 1
@@ -244,34 +256,34 @@ def selecting_category
     puts "10. Animals"
    selection = gets.chomp
    if selection == "1"
-    urlcategory = "9"
+    urlcategory = 9
     selecting_difficulty(urlcategory)
    elsif selection == "2"
-    urlcategory = "12"
+    urlcategory = 12
     selecting_difficulty(urlcategory)
    elsif selection == "3"
-    urlcategory = "14"
+    urlcategory = 14
     selecting_difficulty(urlcategory)
    elsif selection == "4"
-    urlcategory = "17"
+    urlcategory = 17
     selecting_difficulty(urlcategory)
    elsif selection == "5"
-    urlcategory = "18"
+    urlcategory = 18
     selecting_difficulty(urlcategory)
    elsif selection == "6"
-    urlcategory = "20"
+    urlcategory = 20
     selecting_difficulty(urlcategory)
    elsif selection == "7"
-    urlcategory = "21"
+    urlcategory = 21
     selecting_difficulty(urlcategory)
    elsif selection == "8"
-    urlcategory = "22"
+    urlcategory = 22
     selecting_difficulty(urlcategory)
    elsif selection == "9"
-    urlcategory = "23"
+    urlcategory = 23
     selecting_difficulty(urlcategory)
    elsif selection == "10"
-    urlcategory = "27"
+    urlcategory = 27
     selecting_difficulty(urlcategory)
    else
     puts "Please select 1-10."
@@ -292,15 +304,15 @@ def selecting_difficulty(category)
     if difficulty_selection == "1"
         difficulty = "easy"
         puts "You got it, Easy Peasy."
-        create_url(category,difficulty)
+        create_url(category, difficulty)
     elsif difficulty_selection == "2"
         difficulty = "medium"
         puts "Middle of the Road."
-        create_url(category,difficulty)
+        create_url(category, difficulty)
     elsif difficulty_selection == "3"
         difficulty = "hard"
         puts "Woah. Big Brains Over Here!"
-        create_url(category,difficulty)
+        create_url(category, difficulty)
     else
         puts "Please select 1, 2, or 3."
         redo
@@ -323,7 +335,7 @@ user_choice = gets.chomp
     if user_choice == "1"
         selecting_category
     elsif user_choice == "2"
-        my_scores #THIS USED TO WORK AS User.my_scores
+        User.my_scores #THIS USED TO WORK AS User.my_scores
     elsif user_choice == "3"
         10.times {puts}
         puts "Please enter a new password."
@@ -345,15 +357,7 @@ user_choice = gets.chomp
 
 
 
-    # def my_scores
-    #     my_score = Score.all.select{|score| score.user.id == $logged_in}
-    #     table = Text::Table.new
-    #     table.head = ['USERNAME', 'CATEGORIES PLAYED', 'DIFFICULTY', 'FINAL SCORE']
-    #     my_score.each do |score|
-    #         table.rows << [score.user.user_name, score.category.name, score.difficulty.name, score.last_score]
-    #     end
-    #     puts table
-    # end
+
 
 
 
