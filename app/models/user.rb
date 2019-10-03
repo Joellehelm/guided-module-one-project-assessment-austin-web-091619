@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
     has_many :scores 
 
-    def my_scores
-        my_score = Score.all.select{|score| score.user.id == 3}
+    def self.my_scores
+        my_score = Score.where(["user_id = ?", "#{$logged_in}"])
         table = Text::Table.new
         table.head = ['USERNAME', 'CATEGORIES PLAYED', 'DIFFICULTY', 'FINAL SCORE']
         my_score.each do |score|
@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
     def delete_account
         self.destroy
     end
+
+
   
 end
 

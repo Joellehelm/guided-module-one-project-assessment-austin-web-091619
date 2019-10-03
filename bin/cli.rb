@@ -1,4 +1,8 @@
+require 'json'
+require 'rest-client'
+
 $logged_in = nil
+$newscore = nil
 
 
 # def greeting
@@ -109,7 +113,86 @@ def step_one_to_delete_acc
     end
 end
 
-def create_url(category,difficulty)
+
+  def final_score
+        current =  Score.where(["user_id = ?", "#{$logged_in}"]).last
+        table = Text::Table.new
+        table.head = ['USERNAME', 'CATEGORIES PLAYED', 'DIFFICULTY','FINAL SCORE']
+        table.rows << [current.user.user_name, current.category.name, current.difficulty.name, current.last_score]
+        puts table
+    end 
+
+
+
+def play_quiz(quizapi)
+    correct_answers = []
+    incorrect_answers = []
+    questions = []
+    all_answers = []
+    i = 0
+    points = 0
+
+    quiz_data = RestClient.get("#{quizapi}")
+    quiz_hash = JSON.parse(quiz_data)
+    questions = quiz_hash["results"].map { |data| data["question"]}  
+    correct_answers = quiz_hash["results"].map { |data| data["correct_answer"]}
+    wrong_answers = quiz_hash["results"].map { |data| data["incorrect_answers"]}
+    all_answers = wrong_answers
+
+    correct_answers.each do |ans|
+        all_answers[i] << ans
+        all_answers[i].shuffle!
+        i += 1   
+    end
+
+
+
+    questions.each_with_index do |question, i|
+        puts question
+        a = all_answers[i][0]
+        b = all_answers[i][1]
+        c = all_answers[i][2]
+        d = all_answers[i][3]
+        puts "a. #{all_answers[i][0]}"
+        puts "b. #{all_answers[i][1]}"
+        puts "c. #{all_answers[i][2]}"
+        puts "d. #{all_answers[i][3]}"
+
+        user_answer = gets.chomp
+        if user_answer == "a"
+            current = a
+        elsif user_answer == "b"
+            current = b
+        elsif user_answer == "c"
+            current = c
+        elsif user_answer == "d"
+            current = d
+        else
+            puts "Please choose a, b, c, or d"
+            redo
+        end
+
+        if current == correct_answers[i]
+            puts "CORRECT! You have earned 1 point."
+            points += 1
+            puts "You have #{points} points!"
+        else
+            puts "INCORRECT! The correct answer was #{correct_answers[i]}"
+        end
+    end
+    #add thanks for playing and final score here
+    puts "Thanks for playing!!!"
+   
+    newscore = $newscore
+    newscore.last_score = points
+    newscore.save
+    # puts "You just got a score of #{newscore}!"
+     final_score
+
+end
+
+def create_url(urlcategory, difficulty)
+    
     categories = {
     'General Knowledge': 9,
     'Music': 12,
@@ -122,19 +205,43 @@ def create_url(category,difficulty)
     'History': 23,
     'Animals': 27
 }
-
 ############ URL API 
+    cat_name = categories.key(urlcategory)
+    this_cat = Category.find_by(name: cat_name).id
+   
+    
 
+    base_url = 'https://opentdb.com/api.php?amount=5&category=12&difficulty=easy&type=multiple'
+    quiz_url = base_url[0...46] << urlcategory.to_s << '&difficulty=' << difficulty << '&type=multiple'
+    create_score(quiz_url, this_cat)
+    play_quiz(quiz_url)
+end
 
-    base_url = 'https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple'
-    quiz_url = base_url[0...46] << category << '&difficulty=' << difficulty << '&type=multiple'
-    quiz_url
+def create_score(quiz_url, cat_id)
+    category = cat_id
+  
+    quiz_url = 'https://opentdb.com/api.php?amount=5&category2=&difficulty=easy&type=multiple'
+    cat_start = "category="
+    cat_end = "&"
+    dif_start = "difficulty="
+    dif_end = "&"
+ 
+    
+    difficulty = quiz_url[/#{dif_start}(.*?)#{dif_end}/m, 1]
+        if difficulty == 'easy'
+            difficulty = 1
+        elsif difficulty == 'medium'
+            difficulty = 2
+        else difficulty = 3
+        end
+   newscore = Score.create(:user_id => $logged_in, :category_id => category, :difficulty_id => difficulty, :last_score => 0)
+   newscore.save
+   $newscore = newscore
 end
 
 
-
 def selecting_category
-  category = nil
+  urlcategory = nil
     puts "Please choose a category."
     puts "Select a number below."
     puts "1. General Knowledge"
@@ -149,35 +256,35 @@ def selecting_category
     puts "10. Animals"
    selection = gets.chomp
    if selection == "1"
-    category = "9"
-    selecting_difficulty(category)
+    urlcategory = 9
+    selecting_difficulty(urlcategory)
    elsif selection == "2"
-    category = "12"
-    selecting_difficulty(category)
+    urlcategory = 12
+    selecting_difficulty(urlcategory)
    elsif selection == "3"
-    category = "14"
-    selecting_difficulty(category)
+    urlcategory = 14
+    selecting_difficulty(urlcategory)
    elsif selection == "4"
-    category = "17"
-    selecting_difficulty(category)
+    urlcategory = 17
+    selecting_difficulty(urlcategory)
    elsif selection == "5"
-    category = "18"
-    selecting_difficulty(category)
+    urlcategory = 18
+    selecting_difficulty(urlcategory)
    elsif selection == "6"
-    category = "20"
-    selecting_difficulty(category)
+    urlcategory = 20
+    selecting_difficulty(urlcategory)
    elsif selection == "7"
-    category = "21"
-    selecting_difficulty(category)
+    urlcategory = 21
+    selecting_difficulty(urlcategory)
    elsif selection == "8"
-    category = "22"
-    selecting_difficulty(category)
+    urlcategory = 22
+    selecting_difficulty(urlcategory)
    elsif selection == "9"
-    category = "23"
-    selecting_difficulty(category)
+    urlcategory = 23
+    selecting_difficulty(urlcategory)
    elsif selection == "10"
-    category = "27"
-    selecting_difficulty(category)
+    urlcategory = 27
+    selecting_difficulty(urlcategory)
    else
     puts "Please select 1-10."
     selecting_category
@@ -186,6 +293,7 @@ def selecting_category
 end
 
 def selecting_difficulty(category)
+    1.times do
     category = category
     puts "Please choose a difficulty."
     puts "Select a number below."
@@ -196,22 +304,24 @@ def selecting_difficulty(category)
     if difficulty_selection == "1"
         difficulty = "easy"
         puts "You got it, Easy Peasy."
-        create_url(category,difficulty)
+        create_url(category, difficulty)
     elsif difficulty_selection == "2"
         difficulty = "medium"
         puts "Middle of the Road."
-        create_url(category,difficulty)
+        create_url(category, difficulty)
     elsif difficulty_selection == "3"
         difficulty = "hard"
         puts "Woah. Big Brains Over Here!"
-        create_url(category,difficulty)
+        create_url(category, difficulty)
     else
         puts "Please select 1, 2, or 3."
-        selecting_difficulty
+        redo
     end
-
-    #play quiz method goes here
 end
+end
+
+
+
 
 def after_logging_in
  this_user = User.find_by(id: $logged_in)
@@ -225,7 +335,8 @@ user_choice = gets.chomp
     if user_choice == "1"
         selecting_category
     elsif user_choice == "2"
-        #view past scores method
+        User.my_scores #THIS USED TO WORK AS User.my_scores
+        after_logging_in
     elsif user_choice == "3"
         10.times {puts}
         puts "Please enter a new password."
@@ -246,13 +357,7 @@ user_choice = gets.chomp
     end
 
 
-    def play_quiz
-        correct_answers = []
-        incorrect_answers = []
-        questions = []
 
-        
-    end
 
 
 

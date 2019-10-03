@@ -1,13 +1,15 @@
 require_relative '../config/environment'
 require_relative 'cli'
 
-<<<<<<< HEAD
-user_my_scores = User.find_by(user_id = "3")
-user_my_scores.last_score_game
-=======
 
 
+first_screen
 
-#   greeting
-  first_screen
->>>>>>> origin/master
+
+# def first_score
+#     score =  Score.where(["user_id = ?", "3"]).first
+#     table = Text::Table.new
+#     table.head = ['USERNAME', 'CATEGORIES PLAYED', 'DIFFICULTY','FINAL SCORE']
+#     table.rows << [score.user.user_name, score.category.name, score.difficulty.name, score.last_score]
+#     puts table
+#  end
