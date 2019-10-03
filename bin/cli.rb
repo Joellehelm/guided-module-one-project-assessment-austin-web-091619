@@ -79,8 +79,7 @@ def log_in
         puts "Please enter your password."
         entered_password = gets.chomp
         if entered_password == correct
-            $logged_in = current.id                   #This grabs the users id if they log in correctly
-            #method to do what comes after logging in goes here
+            $logged_in = current.id                        
             after_logging_in
         else
             puts "The password is incorrect."
