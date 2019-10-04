@@ -20,7 +20,7 @@ The user interacts with this fully through a Command Line Interface (e.g. Termin
 
 ---
 
-## Project Overview (Timeline)
+## Technologies
 
 ### Phase 1: The Setup
 
