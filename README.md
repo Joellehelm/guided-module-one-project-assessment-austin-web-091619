@@ -60,6 +60,8 @@ You should get something like this
 
    ```ruby 2.6.1p33 (2019-01-30 revision 66950) [x86_64-darwin18] ```
    
+If you don't have ruby installed, you'll have to get that up and running in your machine first. You can do that by going to the [Official Ruby Language Downloads](https://www.ruby-lang.org/en/downloads/) page and following the instructions to download and install ruby on your computer. 
+   
 2. Download this repository
 
 3. Open up your terminal. In your terminal, cd into the repository you just downloaded like so, 
