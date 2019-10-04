@@ -62,9 +62,13 @@ You should get something like this
    
 2. Download this repository
 
-3. In your terminal, cd into the repository like so, 
+3. Open up your terminal. In your terminal, cd into the repository you just downloaded like so, 
 
    ``` cd your/path ```
+   
+   in my computer, that would look like this:
+   
+   ``` cd /Users/saul/documents/Learning/flatiron/projects/p1/guided-module-one-project-assessment-austin-web-091619 ```
 
 5. run this command: 
 
@@ -74,7 +78,7 @@ You should get something like this
 
    ``` ruby bin/run.rb ```
 
-5. Follow in prompt commands, and
+5. Follow the in prompt commands of the game, and
 
 
 
