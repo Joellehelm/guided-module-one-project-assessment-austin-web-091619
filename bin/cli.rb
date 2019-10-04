@@ -70,20 +70,30 @@ def general_knowledge_picture
      end
 
      def science_nature_picture
-        puts "                            .::.
-                         .:'  .:
-              ,MMM8&&&.:'   .:'
-             MMMMM88&&&&  .:'
-            MMMMM88&&&&&&:'
-            MMMMM88&&&&&&
-          .:MMMMM88&&&&&& 
-       .:'   MMMMM88&&&&
-    .:'     .:'MMM8&&&':'  
-     .:''::'     SCIENCE & NATURE"
+        puts '                       .::.
+                    .:\'  .:
+         ,MMM8&&&.:\'   .:\'
+        MMMMM88&&&&  .:\'
+       MMMMM88&&&&&&:\'
+       MMMMM88&&&&&&
+     .:MMMMM88&&&&&&
+   .:\'  MMMMM88&&&&
+ .:\'   .:\'MMM8&&&\'
+ :\'  .:\'
+ \'::\'  Science & Nature'
      end
 
      def mythology_picture
-    
+        puts '  <=======]}======
+        --.   /|
+       _\"/_.\'/
+     .\'._._,.\'
+     :/ \{}/
+    (L  /--\',----._
+        | MYTHOLOGY\\\
+       : /-\ .\'-\'\ / |
+        \\\, ||    \|
+         \/ ||    ||'
      end
 
      def sports_picture
@@ -114,7 +124,17 @@ def general_knowledge_picture
      end
 
      def geography_picture
-        puts 
+        puts '          ,-:` \;\',`\'-, 
+        .\'-;_,;  \':-;_,\'.
+       /;   \'/    ,  _`.-\
+      | \'`. (`     /` ` \`|
+      |:.  `\`-.   \_   / |
+      |     (   `,  .`\ ;\'|
+       \     | .\'     `-\'/
+        `.   ;/GEOGRAPHY\'
+          `\'-._____.
+      
+      '
      end
 
      def history_picture
@@ -135,17 +155,20 @@ def general_knowledge_picture
      end
 
      def animals_picture
+        
+
         puts '                        ____
-             .---\'-    \
-        .-----------/           \
-       /           (         ^  |   __
-   &  (         \       O  /  / .\'
-    \'._/(ANIMALS   \'-\'  (.   (_.\' /
-        \                    \     ./
-        |    |       |    |/ \'._.\'
-        )   @).____\|  @ |
-        .  /    /       (    | 
-       \|, \'_:::\  . ..  \'_:::\ ..\).'
+                   .---\'-    \
+      .-----------/           \
+     /           (         ^  |   __
+&   (             \        O  /  / .\'
+\'._/(    ANIMALS   \'-\'  (.   (_.\' /
+     \                    \     ./
+      |    |       |    |/ \'._.\'
+       )   @).____\|  @ |
+   .  /    /       (    | 
+  \|, \'_:::\  . ..  \'_:::\ ..\).'
+
      end
 
 
@@ -355,7 +378,7 @@ def play_quiz(quizapi)
     newscore.save
     puts "Heres your score!"
      final_score
-     first_screen
+     after_logging_in
 
 end
 
@@ -387,9 +410,6 @@ end
 
 def create_score(quiz_url, cat_id)
     category = cat_id
-  
-    # quiz_url = quiz_url
-    # # 'https://opentdb.com/api.php?amount=5&category2=&difficulty=easy&type=multiple'
     cat_start = "category="
     cat_end = "&"
     dif_start = "difficulty="
@@ -449,7 +469,7 @@ def selecting_category
     urlcategory = 18
     selecting_difficulty(urlcategory)
    elsif selection == "6"
-    
+    mythology_picture
     urlcategory = 20
     selecting_difficulty(urlcategory)
    elsif selection == "7"
@@ -458,6 +478,7 @@ def selecting_category
     selecting_difficulty(urlcategory)
    elsif selection == "8"
     urlcategory = 22
+    geography_picture
     selecting_difficulty(urlcategory)
    elsif selection == "9"
     history_picture
