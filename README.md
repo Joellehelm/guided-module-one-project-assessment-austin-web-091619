@@ -6,6 +6,7 @@ Module One Final Project: QUIZ SHOW!
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Examples of Use](#examples-of-use)
+* [Credits](#credits)
 
 ---
 
@@ -27,13 +28,16 @@ This application was written in Ruby. Thus, Ruby is required to be installed on 
 
 - [rest-client](https://rubygems.org/gems/rest-client/versions/1.8.0): to communicate the the trivia API. 
 - [json](https://rubygems.org/gems/json): To parse incoming data from the trivia API
+- [text-table](https://rubygems.org/gems/text-table/versions/1.2.4): To make the results of your scores presentable in your terminal
+- [rainbow](https://rubygems.org/gems/rainbow): To format the behaiviors (e.g. colors, flashing) of text of certain elements of the game in your terminal
+- [bundler](https://rubygems.org/gems/bundler): To help manage dependencies
 
 Further Ruby Gems were used in the development of the application:
 
-- [pry](https://rubygems.org/gems/pry)
-- [setup](https://rubygems.org/gems/setup)
-- [sinatra](https://rubygems.org/gems/sinatra)
-- [bundler](https://rubygems.org/gems/bundler)
+- [pry](https://rubygems.org/gems/pry): To help understand what's going on in the application
+- [activerecord](https://rubygems.org/gems/activerecord): For the associations of the classes in the backend
+- [sqlite3](https://rubygems.org/gems/sqlite3): To build and manage the database
+
 
 
 ## Examples of Use
@@ -61,14 +65,26 @@ You should get something like this
 3. In your terminal, cd into the repository like so, 
 
    ``` cd your/path ```
+
+5. run this command: 
+
+   ``` bundle install ```
    
-4. run this command: 
+6. Then: 
 
    ``` ruby bin/run.rb ```
 
 5. Follow in prompt commands, and
 
+
+
 6. Have fun! 😀
+
+
+## Credits
+
+
+The humble developers in training that built this are:
 
 
 **Joelle Helm** [LinkedIn](https://www.linkedin.com/in/joellehelm/) // [Github](https://github.com/Joellehelm)
