@@ -8,21 +8,15 @@ Module One Final Project: QUIZ SHOW!
 
 ---
 
-## Goals (Minimum Requirements)
+## General info
+This project, the capstone of MOD 1, is a Command Line Interface Trivia Game. The game allows you to:
 
-You will be building a **Command Line CRUD App** that uses a database to persist information. The goal of which is to demonstrate all of the skills that you've learned in module one:
+- Create a username and password
+- Select a topic of trivia to play, along with a level of difficulty
+- See your past scores
+- Delete your history
 
-- Ruby
-- Object Orientation
-- Relationships (via ActiveRecord)
-- Problem Solving (via creating a Command Line Interface (CLI))
-
-Your **minimum requirements** for this project are to build a Command Line App that:
-
-1. Contains at least three models with corresponding tables, including a join table.
-2. Accesses a Sqlite3 database using ActiveRecord.
-3. Has a CLI that allows users to interact with your database as defined by your _user stories_ (minimum of four; one for each CRUD action).
-4. Uses good OO design patterns. You should have separate models for your runner and CLI interface.
+The user interacts with this fully through a Command Line Interface (e.g. Terminal in a Mac) by selecting guided options. 
 
 ---
 
