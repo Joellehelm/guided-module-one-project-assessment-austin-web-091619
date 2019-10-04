@@ -187,6 +187,8 @@ def first_screen
     puts "______________________"
     puts "1. Log in"
     puts "2. Create a new account"
+    puts 
+    puts "Press control + z at any time to exit the game"
     choice = gets.chomp
     if choice == "1"
         log_in
@@ -305,15 +307,23 @@ def play_quiz(quizapi)
     puts Rainbow("===============================================================================================================================================").webgray
         puts Rainbow(question).seashell
     puts Rainbow("===============================================================================================================================================").webgray
-        a = all_answers[i][0]
-        b = all_answers[i][1]
-        c = all_answers[i][2]
-        d = all_answers[i][3]
-        puts "a. #{all_answers[i][0]}"
-        puts "b. #{all_answers[i][1]}"
-        puts "c. #{all_answers[i][2]}"
-        puts "d. #{all_answers[i][3]}"
-       
+    a = all_answers[i][0]
+    a = a.gsub(/&#039;/, "'") #apostrophe fix
+    a = a.gsub(/&quot;/, '"') #quote fix
+    b = all_answers[i][1]
+    b = b.gsub(/&#039;/, "'") #apostrophe fix
+    b = b.gsub(/&quot;/, '"') #quote fix
+    c = all_answers[i][2]
+    c = c.gsub(/&#039;/, "'") #apostrophe fix
+    c = c.gsub(/&quot;/, '"') #quote fix
+    d = all_answers[i][3]
+    d = d.gsub(/&#039;/, "'") #apostrophe fix
+    d = d.gsub(/&#039;/, "'") #apostrophe fix
+    puts "a. #{a}"
+    puts "b. #{b}"
+    puts "c. #{c}"
+    puts "d. #{d}"
+    
 
         user_answer = gets.chomp
         if user_answer == "a"
