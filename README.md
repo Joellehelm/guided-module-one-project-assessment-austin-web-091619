@@ -38,32 +38,33 @@ Further Ruby Gems were used in the development of the application:
 
 ## Examples of Use
 
-
-## Setup: How To Install
-
-To get the application up and running on your machines, follow these steps:
+This is what the application looks like when its up and running:
 
 
+                 ** NEED TO ADD GIF OF RECORDING HERE **
 
-### Phase 6: Presentation
 
-It's time to show off your creation to the world! Things you might want to do are:
+## Setup
 
-* Write a README detailing:
-  * How to install your application.
-  * How to run your application.
-  * How to use your application (commands that can be run).
-  * What your program looks like (screenshots).
-  * etc.
-* Prepare a demo video describing how a user would interact with your working project.
-    * The video should:
-      * Have an overview of your project. (2 minutes max)
-* Prepare a presentation to follow your video. (3 minutes max)
-    * Your presentation should:
-      * Describe something you struggled to build, and show us how you ultimately implemented it in your code.
-      * Discuss 3 things you learned in the process of working on this project.
-      * Address, if anything, what you would change or add to what you have today?
-      * Present any code you would like to highlight.
-* Write a blog post about the project and process.
+To get the application up and running on your machine, follow these steps:
 
-🎊 Good job on making to the end! 🎊
+1. Make sure you have Ruby installed by opening your terminal and typing, 
+
+   ```ruby -v ```
+
+You should get something like this 
+
+   ```ruby 2.6.1p33 (2019-01-30 revision 66950) [x86_64-darwin18] ```
+   
+2. Download this repository
+3. In your terminal, cd into the repository like so, 
+
+   ``` cd your/path ```
+   
+4. run this command: 
+
+   ``` ruby bin/run.rb ```
+
+5. Have fun! 😀
+
+
