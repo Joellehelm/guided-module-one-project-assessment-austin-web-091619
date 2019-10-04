@@ -72,4 +72,4 @@ You should get something like this
 
 &
 
-[**Saul Feliz**] [LinkedIn](https://www.linkedin.com/in/saul-feliz-ba8bab1/) // [Github](https://github.com/saulhappy)
+**Saul Feliz** [LinkedIn](https://www.linkedin.com/in/saul-feliz-ba8bab1/) // [Github](https://github.com/saulhappy)
