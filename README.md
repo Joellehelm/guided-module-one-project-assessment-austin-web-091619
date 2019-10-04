@@ -45,7 +45,11 @@ Further Ruby Gems were used in the development of the application:
 This is what the application looks like when its up and running:
 
 
-   ![](/images/quiz_game.gif)
+   ![](/images/game_start.gif)
+   
+   ![](/images/login_play.gif)
+   
+   ![](/images/endNscores.gif)
 
 
 ## Setup
