@@ -16,17 +16,16 @@ This project, the capstone of MOD 1, is a Command Line Interface Trivia Game. Th
 - See your past scores
 - Delete your history
 
-The user interacts with this fully through a Command Line Interface (e.g. Terminal in a Mac) by selecting guided options. 
+The user interacts with this fully through a Command Line Interface (e.g. Terminal in a Mac) by selecting guided options. The questions are sourced from the Open Trivia Database API[https://opentdb.com/].
 
 ---
 
 ## Technologies
 
-### Phase 1: The Setup
+This application was written in Ruby. It requires the following Ruby Gems:
 
-This should take approximately **half a day**.
+- json: To parse incoming data from Trivia API
 
-Do not begin coding until you have your pitch approved by an instructor. Do not overthink this. Do not spend your whole day whiteboarding out a schema.
 
 #### Planning
 
