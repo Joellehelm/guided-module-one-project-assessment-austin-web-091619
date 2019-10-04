@@ -57,6 +57,7 @@ You should get something like this
    ```ruby 2.6.1p33 (2019-01-30 revision 66950) [x86_64-darwin18] ```
    
 2. Download this repository
+
 3. In your terminal, cd into the repository like so, 
 
    ``` cd your/path ```
@@ -65,7 +66,9 @@ You should get something like this
 
    ``` ruby bin/run.rb ```
 
-5. Have fun! 😀
+5. Follow in prompt commands, and
+
+6. Have fun! 😀
 
 
 **Joelle Helm** [LinkedIn](https://www.linkedin.com/in/joellehelm/) // [Github](https://github.com/Joellehelm)
