@@ -68,4 +68,8 @@ You should get something like this
 5. Have fun! 😀
 
 
-Joelle Helm (@joellehelm) & Saul Feliz (@saulhappy)
+[**Joelle Helm**](https://www.linkedin.com/in/joellehelm/)
+[@Joellehelm](https://github.com/Joellehelm)
+& 
+[**Saul Feliz**](https://www.linkedin.com/in/saul-feliz-ba8bab1/) 
+[@saulhappy](https://github.com/saulhappy)
