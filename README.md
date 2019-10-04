@@ -39,7 +39,7 @@ Further Ruby Gems were used in the development of the application:
 ## Examples of Use
 
 
-## Setup
+## Setup: How To Install
 
 To get the application up and running on your machines, follow these steps:
 
