@@ -6,6 +6,7 @@ Module One Final Project: QUIZ SHOW!
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Examples of Use](#examples-of-use)
+* [Demo](#demo)
 * [Credits](#credits)
 
 ---
@@ -50,6 +51,11 @@ This is what the application looks like when its up and running:
    ![](/images/login_play.gif)
    
    ![](/images/endNscores.gif)
+   
+
+## Demo
+Click the image below to be redirected to a demo video.
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/A8UWvrKlUR8/0.jpg)](http://www.youtube.com/watch?v=A8UWvrKlUR8)
 
 
 ## Setup
