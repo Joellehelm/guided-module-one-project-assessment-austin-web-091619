@@ -103,7 +103,7 @@ If you don't have ruby installed, you'll have to get that up and running in your
 The humble developers in training that built this are:
 
 
-**Joelle Helm** [LinkedIn](https://www.linkedin.com/in/joellehelm/) // [Github](https://github.com/Joellehelm)
+**Joelle Helm** [LinkedIn](https://www.linkedin.com/in/joellehelm/) // [Github](https://github.com/Joellehelm) // [Portfolio](https://saulfeliz.com/)
 
 &
 
